@@ -1,0 +1,52 @@
+body {
+	background-color: #303030;
+	background-image: url(sketches.jpg);
+	background-size: 100%;
+	color: white;
+	font-family: Tahoma,Verdana,Segoe,sans-serif;
+	font-size: 20px;
+}
+h1 {
+	font-size:  2.5em;
+	background-color: #ffb300;
+	padding: 20px;
+	text-align: center;
+	font-family: Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif; 
+	border: solid 8px white;
+	
+}
+p {font-size:  1.5em;
+	background-color:#ffb300;
+	padding: auto;
+	padding-left: 10px;
+	border: solid 2px white;
+	text-align: left;
+	font-family: Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif; 
+
+}
+a { 
+	font-size: 1.5em;
+	background-color: #ffb300;
+	padding: 0px 10px;
+	color: white;
+	transition: color 300ms ease-in;
+}
+
+a:hover { 
+	color: #004eff;
+
+}
+
+
+img {
+	max-width: 100%;
+	border: solid 8px white;
+}
+#container {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.link {
+	list-style: none;
+}
