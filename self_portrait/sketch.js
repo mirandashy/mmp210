@@ -32,6 +32,9 @@ function draw () {
 	strokeWeight (5)
 	line (270, 140, 305, 140) //left eyebrown
 	line (333, 140, 368, 140)
+	strokeWeight(4)
+	fill (255, 250,98)
+	arc (224, 180, 25, 40, HALF_PI, -HALF_PI) //left ear
 
 
 	fill (255, 250, 98)
