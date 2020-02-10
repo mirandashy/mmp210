@@ -22,16 +22,22 @@ function draw () {
 	arc(283, 165, 35, 35, HALF_PI, PI);
 
 
+
 	noFill();
-	arc(350, 153, 35, 35, 0, -PI, PI); // right eye
-	arc(350, 165, 35, 35, -PI, HALF_PI);
+	arc(350, 156, 35, 35, 0, -PI, PI); // right eye
+	
 
 	rectMode (CENTER);
 	line (312, 205, 332, 205) //mouth
+	strokeWeight (5)
+	line (270, 140, 305, 140) //left eyebrown
+	line (333, 140, 368, 140)
+
 
 	fill (255, 250, 98)
 	arc (416, 180, 25, 40, -HALF_PI, HALF_PI) // right ear
-	arc (225, 180, 25, 40, HALF_PI, -HALF_PI)
+	arc (225, 180, 25, 40, HALF_PI)
+
 
 	// shapes that are only xy points //
 
