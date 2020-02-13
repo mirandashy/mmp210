@@ -15,7 +15,7 @@ var s = 200; //size for face
 
 function setup () {
 	//setup scope
-	createCanvas(640, 360);
+	createCanvas(x*2, y*2);
 }
 
 function draw () {
@@ -30,7 +30,7 @@ function draw () {
  	strokeWeight (4);
 
 	ellipse(x, y, s); 
-	x++
+	//x++
 	//s++
 	fill ("white");
 	ellipse (x-30, y-20, s-170); //left eye
@@ -39,7 +39,7 @@ function draw () {
 
 
 	noFill();
-	arc(x+30, y-24, s-165, s-165, s-180, -PI, PI); // right eye
+	arc(x+30, y-24, s-165, s-165, 0, PI); // right eye
 	
 
 	
