@@ -23,28 +23,47 @@ function draw () {
 
  	// shapes with xy coordinate and size //
 
+//moon
+	var bigMoon = map(0, 0, 143, mouseY, 100);
+	fill ("white");
+	noStroke();
+	ellipse(x, y, bigMoon);
+
+
+
+
  	//face
 	fill (255, 250, 98);
  	stroke ('red');
  	strokeWeight (4);
-
-
 	ellipse(x, y, s); 
 	//x++
 	//s++
 	fill ("white");
-	ellipse (x-30, y-20, s-170); //left eye
-	noFill();
+
+	ellipse (x-30, y-20, 30); //left eye
+	noFill(); //290, 160, 30// 
+
 	arc(x-37, y-15, s-165, s-165, HALF_PI, PI); //left eyebag
 
 
+	noStroke();
+	var closeEye = map(0, mouseY, 142, 0, 100);
+	fill(255, 250, 98);
+	ellipse (x-30, closeEye, 35);
+
+	
 	noFill();
+	strokeWeight(4);
+	stroke('red');
 	arc(x+30, y-24, s-165, s-165, 0, PI); // right eye
+
 	
 
 	
-	strokeWeight(4)
-	fill (255, 250,98)
+	
+	fill (255, 250,98);
+	strokeWeight(4);
 	arc (x-96, y, s-175, s-160, HALF_PI, -HALF_PI) //left ear
 	arc (x+96, y, s-175, s-160, -HALF_PI, HALF_PI) // right ear
 	
@@ -57,6 +76,9 @@ function draw () {
 	strokeWeight (5)
 	line (x-50, y-40, x-15, y-40) //left eyebrown
 	line (x+13, y-40, x+48, y-40) //right eyebrown
+
+
+
 
 
 	//arrow 
@@ -89,5 +111,14 @@ function draw () {
 	//body
 	fill ('red');
 	triangle (x, y+101, x-120, y+180 , x+120, y+180);
+
+	
+
+
+
+
+
+
+	
 
 }	
