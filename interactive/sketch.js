@@ -23,8 +23,8 @@ function draw () {
 
  	// shapes with xy coordinate and size //
 
-//moon
-	var bigMoon = map(0, 0, 143, mouseY, 100);
+// white circle behind the face gets bigger and resembles the moon//
+	var bigMoon = map(mouseY, 0, 360 , 150, 300);
 	fill ("white");
 	noStroke();
 	ellipse(x, y, bigMoon);
@@ -46,9 +46,9 @@ function draw () {
 
 	arc(x-37, y-15, s-165, s-165, HALF_PI, PI); //left eyebag
 
-
+	//close eye effect, yellow ellipse covers the open lef eye//
 	noStroke();
-	var closeEye = map(0, mouseY, 142, 0, 100);
+	var closeEye = map(mouseY, 0, 360, 360, 160);
 	fill(255, 250, 98);
 	ellipse (x-30, closeEye, 35);
 
