@@ -48,7 +48,7 @@ function draw () {
 
 	//close eye effect, yellow ellipse covers the open lef eye//
 	noStroke();
-	var closeEye = map(mouseY, 0, 360, 360, 160);
+	var closeEye = map(mouseY, 0, 360, 360, 190);
 	fill(255, 250, 98);
 	ellipse (x-30, closeEye, 35);
 
