@@ -10,7 +10,7 @@ var imageThree;
 var imageFour;
 
 var counter = 0;
-var instruction = "when yout";
+var instruction = "when you";
 var x;
 var y;
 
@@ -23,7 +23,7 @@ function preload() {
 
 
 function setup () {
-	var canvas= createCanvas(500, 500);
+	var canvas= createCanvas(1000, 500);
 	canvas.drawingContext.miterLimit = 2;
 
 	x = width - 150;
@@ -37,16 +37,6 @@ function setup () {
 	//	counter == 0;
 	//}
 
-	if (mouseX > width/2 && mouseY > height/2) {
-		instruction = 'when you tell yourself to start your portfolio';
-		y = 50;
-	} else if (mouseX > width/2 && mouseY< height/2){
-		instruction = "but you keep procastinating";
-		x = 50;
-	} else if (mouseX< width/2 && mouseY <height/2) {
-		instruction ='and procastinating';
-		y = height - 100;
-	}
 //}
 
 function draw () {
@@ -54,14 +44,26 @@ function draw () {
 
 	// draw the image
 	//image(imageOne, 0, 70, 512, 384); 
-	if (mouseX > width/2 && mouseY > height/2) {
-		image(imageOne, width/2, height/2 , width, height);
-	} else if (mouseX < width/2 && mouseY > height/2) {
-		image (imageTwo, 0, height/2, width/2, height);
-	} else if (mouseX > width/2 && mouseY < height/2) {
-		image(imageThree, width/2, 0, width , height/2);
-	} else {
-		image(imageFour, 0, 0, width/2, height/2);
+		if (mouseX < width/2 && mouseY < height/2) {
+			image(imageOne, 0, 0 , width/2, height/2);
+	} 	else if (mouseX > width/2 && mouseY < height/2) {
+			image (imageTwo, width/2, 0, width/2, height/2);
+	} 	else if (mouseX < width/2 && mouseY > height/2) {
+			image(imageThree, 0, height/2, width/2 , height/2);
+
+			
+	} 	else {
+			image(imageFour, width/2, height/2, width/2, height/2);
+	}
+
+		if (mouseX < width/2 && mouseY < height/2) {
+			text ('when you keep telling yourself', 80, 10,20);
+	} 	else if (mouseX > width/2 && mouseY < height/2) {
+			text ('to work on your portfolio', 580, 10, 20);
+	} 	else if (mouseX < width/2 && mouseY > height/2) {
+			text ('but every tomorrow', 400, 270, 40);
+	}	else {
+			text ('is a new one', 540 ,270, 40);
 	}
 
 	//image(catImage, 300, 100, 300,300); 
@@ -109,9 +111,9 @@ function draw () {
 	textStyle(NORMAL);
 	textAlign(CENTER, TOP);
 
-	fill("white");
+	fill("black");
 
-	text (instruction, x, y, 100);
+	//text (instruction, x, y, 100);
 	//var welcome = "When life becomes to hard to handle";
 	//var end= map(frameCount, 0, 200, 0, welcome.length);
 	//text (welcome.substring (0, end), 270, 80, 200);
