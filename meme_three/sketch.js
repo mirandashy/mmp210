@@ -1,5 +1,5 @@
-/* meme versione two
-	03/03/2020
+/* meme versione three
+	03/11/2020
 */
 
 
@@ -31,6 +31,8 @@ function setup () {
 	
 }
 
+
+
 function draw () {
 	background('grey');
 
@@ -59,18 +61,14 @@ function draw () {
 
 
 	textSize(100);
-	
-	textFont('Lacquer')
-	
 
-	
+	textFont('Lacquer')
+
 	textSize(30);
 	strokeWeight(5);
 	textStyle(NORMAL);
 	textAlign(CENTER, TOP);
 
 	fill("black");
-
-	
 }
 
