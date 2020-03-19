@@ -9,6 +9,9 @@ var imageTwo;
 var imageThree;
 var imageFour;
 
+var fourSize;
+var fourSizeSpeed = 5;
+
 var counter = 0;
 var instruction = "when you";
 var x;
@@ -28,6 +31,8 @@ function setup () {
 
 	x = width - 150;
 	y = height - 100;
+
+	fourSize = width;
 	
 }
 
@@ -46,7 +51,12 @@ function draw () {
 
 			
 	} 	else {
-			image(imageFour, width/2, height/2, width/2, height/2);
+			imageMode (CENTER);
+			image(imageFour, width/2, height/2, fourSize, fourSize);
+
+			fourSize += fourSizeSpeed;
+			if ()
+ 
 	}
 
 		if (mouseX < width/2 && mouseY < height/2) {
@@ -58,6 +68,8 @@ function draw () {
 	}	else {
 			text ('is a new one', 540 ,270, 40);
 	}
+
+
 
 
 	textSize(100);
