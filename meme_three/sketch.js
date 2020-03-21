@@ -9,8 +9,8 @@ var imageTwo;
 var imageThree;
 var imageFour;
 
-var fourSize;
-var fourSizeSpeed = 5;
+var s= 1;
+var speed= 5;
 
 var counter = 0;
 var instruction = "when you";
@@ -31,8 +31,6 @@ function setup () {
 
 	x = width - 150;
 	y = height - 100;
-
-	fourSize = width;
 	
 }
 
@@ -51,6 +49,8 @@ function draw () {
 
 			
 	} 	else {
+		scale(s)
+		s += speed;
 			imageMode (CENTER);
 			image(imageFour, width/2, height/2, fourSize, fourSize);
 
