@@ -6,8 +6,7 @@
 
 	// global scope
 	var clown_four;
-	var phrase= "when you look at yourself in the mirror after spending a whole day of procastination";
-	var procastination= "procastination procastination procastination procastination procastination procastination procastination procastination procastination";
+	var phrase= "when you look at yourself in the mirror after spending the whole day procastinating";
 	var s = 1; //scale for image
 	var speed= 0.01; //speed of the scale 
 
@@ -46,21 +45,37 @@ function draw(){
 	pop();
 
 	// calculate rotation angle
-	var r = frameCount * PI /70;
+	//var r = frameCount * PI /70;
 
 	push();
-	//shearY(r);
-	//text(procastination, 0, 0);
-	translate (50, 50); 
 	fill ("black");
 	textSize(30);
-	var end= map(frameCount, 0, 200, 0, phrase.length);
-	text (phrase.substring (0, end), 0, 200, 500);
+	textFont('Luckiest Guy');
+	var end= map(frameCount, 0, 600, 0, phrase.length);
+	text (phrase.substring (0, end), 250, 200, 500);
 	pop();
 
-	shearY(r);
-	translate (300, height/2);
-	fill("black");
-	var end= map(frameCount, 0, 200, 0, procastination.length);
-	text (procastination.substring (0, end), 0, 10, 50);
+
+
+	translate (width/2, height/2);
+	textSize(100);
+
+	push();
+	var r = frameCount *PI/70;
+	shearX(r);
+	fill("white");
+	stroke("red");
+	strokeWeight(3);
+	text('you are a',-150, -150);
+	pop();
+
+
+	push();
+	shearX(r);
+	var r = frameCount / PI*2;
+	fill('red');
+	stroke("white");
+	strokeWeight(3);
+	text('clown', 150, 150);
+	pop();
 }
