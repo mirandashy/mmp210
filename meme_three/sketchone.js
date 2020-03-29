@@ -66,7 +66,7 @@ function draw(){
 	fill("white");
 	stroke("red");
 	strokeWeight(3);
-	text('you are a',-150, -150);
+	text('you are',-150, -150);
 	pop();
 
 
@@ -76,6 +76,6 @@ function draw(){
 	fill('red');
 	stroke("white");
 	strokeWeight(3);
-	text('clown', 150, 150);
+	text('a clown', 150, 150);
 	pop();
 }
