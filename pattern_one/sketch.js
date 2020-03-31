@@ -10,6 +10,7 @@ for (let i = 100; i >= 1; i--) {
 
 function setup()  {
 	createCanvas (640,360);
+	frameRate(3);
 }
 
 function draw() {
@@ -20,39 +21,44 @@ function draw() {
 
 
 	for (let x = 100; x <= width; x += 120) {
-		line(x, 50, x, 230); //body
 
-		line(x, 80, x+30, 50); //first right
-		line(x, 70, x+30, 40);
-		line(x, 60, x+30, 30);
+		let y = random(30,320);
+		line(x, y-20, x, y+200); //body
 
-		line(x, 230, x+10, 215) //tip right
+		line(x, y+50, x+30, y+20); //first right
+		line(x, y+40, x+30, y+10);
+		line(x, y+30, x+30, y);
 
-		line(x-30, 50, x, 80) //first left
-		line(x-30, 40, x, 70);
-		line(x-30, 30, x, 60);
+		line(x, y+200, x+10, y+185) //tip right
 
-		line(x-10, 215, x, 230); //tip left
+		line(x-30, y+20, x, y+50) //first left
+		line(x-30, y+10, x, y+40);
+		line(x-30, y, x, y+30);
+
+		line(x-10, y+185, x, y+200); //tip left
 
 	}
 	
 
 	
 	for (let x = 50; x <= width; x += 120) {
-		line(x, 120, x, 300);
-
-		line(x, 290, x-30, 320); //left
-		line(x, 280, x-30, 310);
-		line(x, 270, x-30, 300);
+		
+		let y = random(30,300);
+		line(x, y-180, x, y);
 
 
-		line(x, 120, x+10, 135);// tip right
+		line(x, y-10, x-30, y+20); //left
+		line(x, y-20, x-30, y+10);
+		line(x, y-30, x-30, y);
 
-		line(x, 290, x+30, 320) //first left
-		line(x, 280, x+30, 310);
-		line(x, 270, x+30, 300);
 
-		line(x-10, 135, x, 120); //tip left
+		line(x, y-180, x+10, y-165);// tip right
+
+		line(x, y-10, x+30, y+20) //first left
+		line(x, y-20, x+30, y+10);
+		line(x, y-30, x+30, y);
+
+		line(x-10, y-165, x, y-180); //tip left
 
 	}
 }
