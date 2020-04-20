@@ -50,9 +50,9 @@ img {
 button {
 	display: blocked;
 	margin: 5px;
-	background: red;
-	border: 3px solid red;
+	background: black;
+	border: 2px solid yellow;
 	font-size: 20px;
-	color: white;
+	color: yellow;
 
 }

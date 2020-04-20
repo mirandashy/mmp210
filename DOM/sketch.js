@@ -4,14 +4,11 @@
 	*/
 
 	var heightSlider;
-	var angleSlider;
 
 	function setup() {
 		createCanvas (640,360);
 
-		angleSlider = createSlider (0, TWO_PI, 0,  PI * 0.1)
-		angleSlider.input(pattern); 
-		
+				
 	
 		heightSlider = createSlider(0, 360, 0, 10);
 		heightSlider.input(pattern); 
@@ -34,38 +31,27 @@
 
 	function pattern(){
 		background(0);
+			
 
-		for (let x=0; x<= width; x+=100) {
 
-			push();
-			translate(x, random(height));
-
-			rotate(angleSlider.value());
+		for (let x=70; x<= width; x+=120){
 
 			noStroke();
-			fill("red");
-			rect(0, 0, random(100, 200), random(100,200));
-			pop();
-		}
-
-
-		for (let x=0; x<= width; x+=200) {
-
-			noStroke();
-			push();
-			//translate(x, random(height));
-			//rotate(0.1 * PI);
 			fill("yellow");
-			rect(0, 0, random(150, 200), random(100,200));
-			pop();
+			ellipse(x, 100, 100);
+			ellipse(x, 250, 100);
+
 		}
 
+
+
+		//arrow poiting down
 
 		for (let x = 100; x <= width; x += 120) {
 
 			push();
 		strokeWeight (4);
-		stroke('white');
+		stroke("red");
 
 		let y = random(30,320);
 
@@ -87,16 +73,19 @@
 
 	}
 	
-
+	//arrow pointing up
 	
 	for (let x = 50; x <= width; x += 120) {
 
-		rotate(heightSlider.value);
-
+			push();
 		strokeWeight (4);
-		stroke('white');
+		stroke('black');
 		
 		let y = random(30,300);
+
+		
+		rotate(heightSlider.value);
+
 		line(x, y-180, x, y);
 
 
@@ -112,6 +101,7 @@
 		line(x, y-30, x+30, y);
 
 		line(x-10, y-165, x, y-180); //tip left
+		pop();
 
 	}
 
