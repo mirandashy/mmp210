@@ -18,7 +18,8 @@ function setup() {
 }
 
 function draw () {
-	if (sunriseSound.isPlaying()){
+	if (sunriseSound.isPlaying()) {
+		sunsetSound.stop();
 		background ('orange');
 
  	fill (255, 250, 98);
@@ -70,7 +71,8 @@ function draw () {
 
 
 	} else { 
-		//sunsetSound.play();
+		sunriseSound.stop();
+		sunsetSound.play();
 		background("black");
 
  	fill (255, 250, 98);
@@ -117,7 +119,16 @@ function draw () {
 	//body
 	fill ('red');
 	triangle (320, 281, 200, 360 , 440, 360);
+
+
+
 		} 
+
+	// instruction
+	fill ("white");
+	noStroke();
+	textSize(20);
+	text("don't hit spacebar or you'll wake them up", 100, 100, 150, 150);
 
 		
 }
@@ -125,19 +136,12 @@ function draw () {
 
 function keyPressed() {
 	if (keyCode == 32) {
-		if (sunsetSound.isPlaying()) {
-			sunsetSound.stop();
-		} else {
-			sunsetSound.play();
-		}
-
-	if (keyCode == 83) {
-		if (sunriseSound.isPlaying()){
-			sunriseSound.stop();
+		if (sunriseSound.isPlaying()) {
+			sunriseSound.stop(); 
 		} else {
 			sunriseSound.play();
 		}
-	}
+
 
 	}
 }
