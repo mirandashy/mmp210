@@ -2,6 +2,7 @@
 	final project 
 */
 
+
 var currentSlide = 0;
 var numberOfSlides = 7;
 
@@ -11,11 +12,11 @@ var nextSlideW = 400;
 var nextSlideH = 420;
 
 // use these as global xy values, size determined by button function
-var firstOptionX = 100;
-var firstOptionY = 200;
+var firstOptionX = 280;
+var firstOptionY = 180;
 
-var secondOptionX = 540;
-var secondOptionY = 200;
+var secondOptionX = 650;
+var secondOptionY = 180;
 
 var choice = 'none'; // set to 'first' or 'second' in draw loop
 
@@ -104,6 +105,24 @@ function draw() {
     var x = 320;
     var y = 180;
     kid(x, y);
+
+
+  } else if (currentSlide == 3) {
+
+      conversation = 'SOUND';
+
+
+  } else if (currentSlide == 4) {
+
+    conversation = 'Wanna see something cute?';
+    
+    firstChoice = button('Sure', firstOptionX, firstOptionY),
+    secondChoice = button('Maybe next time', secondOptionX, secondOptionY);
+
+    var x = 320;
+    var y = 180;
+    kid(x, y);
+
 
   } else {
     background('black');
@@ -250,8 +269,20 @@ function mouseReleased() {
     } else {
       currentSlide = 1;
     }
-  }
-  
+   } 
   // reset choice after its made
   choice = 'none';
+
+  if (currentSlide == 2) {
+    if (choice == 'first') {
+      currentSlide = 3;
+    } else if (choice == 'second') {
+      currentSlide = 4;
+    } else {
+      currentSlide = 2;
+    }
+}
+
+choice = 'none';
+
 }
