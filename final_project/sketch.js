@@ -2,7 +2,7 @@
 	final project 
 */
 
-var currentSlide = 2;
+var currentSlide = 0;
 var numberOfSlides = 7;
 
 var nextSlideX = 300;
