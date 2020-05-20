@@ -13,12 +13,20 @@ var nextSlideH = 420;
 
 // use these as global xy values, size determined by button function
 var firstOptionX = 280;
-var firstOptionY = 180;
+var firstOptionY = 220;
 
 var secondOptionX = 650;
-var secondOptionY = 180;
+var secondOptionY = 220;
 
 var choice = 'none'; // set to 'first' or 'second' in draw loop
+
+var nightSound;
+var vibesSound;
+
+function preload() {
+  nightSound = loadSound('night_sound.wav');
+  vibesSound = preload('vibes_sound.mp3');
+}
 
 
 function setup() {
@@ -35,6 +43,8 @@ function draw() {
   var firstChoice = false;
   var secondChoice = false;
 
+
+     nightSound.play();
 
   // night sky
   stroke(149, 50, 168);
@@ -60,6 +70,8 @@ function draw() {
 
   if (currentSlide == 0) {
 
+  
+
     instruction = 'Awake the kid by clicking on him';
 
     
@@ -84,6 +96,9 @@ function draw() {
 
   } else if (currentSlide == 1) {
 
+    nightSound.stop();
+
+
     conversation = " Oh hi, I didn't see you there. How are you?";
 
     // buttons
@@ -97,6 +112,9 @@ function draw() {
 
 
   } else if (currentSlide == 2) {
+
+     nightSound.stop();
+
     conversation = "Wanna vibe with me?";
 
     firstChoice = button("Yes", firstOptionX, firstOptionY);
@@ -108,11 +126,18 @@ function draw() {
 
 
   } else if (currentSlide == 3) {
+    
+
+     nightSound.stop();
+     
 
       conversation = 'SOUND';
 
 
   } else if (currentSlide == 4) {
+
+     nightSound.stop();
+
 
     conversation = 'Wanna see something cute?';
     
@@ -123,6 +148,28 @@ function draw() {
     var y = 180;
     kid(x, y);
 
+
+  } else  if (currentSlide == 5) {
+
+     nightSound.stop();
+
+
+    //picture
+    background('black');
+
+  } else if (currentSlide == 6) {
+
+     nightSound.stop();
+
+
+    conversation = "Thank you for keeping me company. I'm kinda tired. I'll go to sleep"
+
+    firstChoice = button('Sleep tight', firstOptionX, firstOptionY);
+    secondChoice = button('See you!', secondOptionX, secondOptionY);
+
+    var x = 320;
+    var y = 180;
+    kid(x, y);
 
   } else {
     background('black');
@@ -284,5 +331,15 @@ function mouseReleased() {
 }
 
 choice = 'none';
+
+if (currentSlide == 6) {
+  if (choice == 'first') {
+    currentSlide = 0;
+  } else if (choice == 'second') {
+    currentSlide = 0;
+  } else {
+    currentSlide = 6;
+  }
+}
 
 }
