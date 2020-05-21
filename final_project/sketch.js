@@ -3,7 +3,7 @@
 */
 
 
-var currentSlide = 0;
+var currentSlide = 3;
 var numberOfSlides = 6;
 
 var nextSlideX = 300;
@@ -127,56 +127,12 @@ function draw() {
       secondChoice = button('That was nice!', secondOptionX, secondOptionY);
 
 
-    strokeWeight (4);
-    stroke('white');
-
-
-  for (let x = 100; x <= width; x += 120) {
-
-    let y = random(30,720);
-    line(x, y-20, x, y+200); //body
-
-    line(x, y+50, x+30, y+20); //first right
-    line(x, y+40, x+30, y+10);
-    line(x, y+30, x+30, y);
-
-    line(x, y+200, x+10, y+185) //tip right
-
-    line(x-30, y+20, x, y+50) //first left
-    line(x-30, y+10, x, y+40);
-    line(x-30, y, x, y+30);
-
-    line(x-10, y+185, x, y+200); //tip left
-
+  for (let x = 100; x <= width; x += 140) {
+    arrow(x, random(0, 720), 1);
+    arrow(x - 50, random(0, 720), -1);
   }
-  
-      for (let x = 50; x <= width; x += 120) {
-    
-    let y = random(30,720);
-    line(x, y-180, x, y);
-
-
-    line(x, y-10, x-30, y+20); //left
-    line(x, y-20, x-30, y+10);
-    line(x, y-30, x-30, y);
-
-
-    line(x, y-180, x+10, y-165);// tip right
-
-    line(x, y-10, x+30, y+20) //first left
-    line(x, y-20, x+30, y+10);
-    line(x, y-30, x+30, y);
-
-    line(x-10, y-165, x, y-180); //tip left
-
-  }
-
-
-  
-     // conversation = 'SOUND';
-
-
-  } else if (currentSlide == 4) {
+}
+ else if (currentSlide == 4) {
 
 
     conversation = 'Wanna see something cute?';
@@ -332,6 +288,40 @@ function kid(x, y) {
   triangle(x, y + 101, x - 120, y + 180, x + 120, y + 180);
   pop();
 }
+
+function arrow(x, y, dir) {
+
+  // styling
+  strokeWeight(4);
+  stroke('white');
+
+  var h = 300 * dir; // height
+  
+  // difference between height in up and down
+  var diff = 0; 
+  if (dir < 0) {
+    diff = -40;
+  }
+  
+  // body 
+  line(x, y + diff, x, y + h); // the pointing up one is upside down ... 
+
+  line(x, y + h, x + 10, y + h - 15 * dir) //tip right
+  line(x, y + h, x - 10, y + h - 15 * dir); //tip left
+
+  // feathers
+  let featherSize = 30 * dir;
+  let offset = 20 * dir;
+  for (let i = 0; i < 3; i++) {
+    line(x, y + featherSize + offset, x + featherSize, y + offset); // left
+    line(x, y + featherSize + offset, x - featherSize, y + offset); // right
+    offset += 10 * dir; // move up/down
+  }
+
+}
+
+
+
 
 // mouse released waits until after click is over
 function mouseReleased() {
