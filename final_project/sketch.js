@@ -3,7 +3,7 @@
 */
 
 
-var currentSlide = 0;
+var currentSlide = 6;
 var numberOfSlides = 7;
 
 var nextSlideX = 300;
@@ -22,18 +22,24 @@ var choice = 'none'; // set to 'first' or 'second' in draw loop
 
 var nightSound;
 var vibesSound;
+var catImage;
 
-function preload() {
+function preload () {
   nightSound = loadSound('night_sound.wav');
-  vibesSound = preload('vibes_sound.mp3');
+  vibesSound = loadSound('vibes_sound.mp3');
+  catImage = loadImage('cat.png');
 }
 
 
 function setup() {
   createCanvas(960, 720);
+  frameRate(3);
 }
 
 function draw() {
+
+  nightSound.play();
+
   background("black");
 
   var instruction = ''; // set to empty string to avoid errors
@@ -42,9 +48,6 @@ function draw() {
   // start assuming use hasn't chosen either
   var firstChoice = false;
   var secondChoice = false;
-
-
-     nightSound.play();
 
   // night sky
   stroke(149, 50, 168);
@@ -70,6 +73,8 @@ function draw() {
 
   if (currentSlide == 0) {
 
+    
+      vibesSound.stop();
   
 
     instruction = 'Awake the kid by clicking on him';
@@ -113,7 +118,8 @@ function draw() {
 
   } else if (currentSlide == 2) {
 
-     nightSound.stop();
+    nightSound.stop();
+    
 
     conversation = "Wanna vibe with me?";
 
@@ -126,17 +132,69 @@ function draw() {
 
 
   } else if (currentSlide == 3) {
+  
+    if (vibesSound.isPlaying()) {
+      nightSound.stop();
+    } else {
+        vibesSound.play();
+      }
+
+      firstChoice = button('Play', firstOptionX, firstOptionY);
+      secondChoice = button('That was nice!', secondOptionX, secondOptionY);
+
+
+    strokeWeight (4);
+    stroke('white');
+
+
+  for (let x = 100; x <= width; x += 120) {
+
+    let y = random(30,720);
+    line(x, y-20, x, y+200); //body
+
+    line(x, y+50, x+30, y+20); //first right
+    line(x, y+40, x+30, y+10);
+    line(x, y+30, x+30, y);
+
+    line(x, y+200, x+10, y+185) //tip right
+
+    line(x-30, y+20, x, y+50) //first left
+    line(x-30, y+10, x, y+40);
+    line(x-30, y, x, y+30);
+
+    line(x-10, y+185, x, y+200); //tip left
+
+  }
+  
+      for (let x = 50; x <= width; x += 120) {
     
+    let y = random(30,720);
+    line(x, y-180, x, y);
 
-     nightSound.stop();
-     
 
-      conversation = 'SOUND';
+    line(x, y-10, x-30, y+20); //left
+    line(x, y-20, x-30, y+10);
+    line(x, y-30, x-30, y);
+
+
+    line(x, y-180, x+10, y-165);// tip right
+
+    line(x, y-10, x+30, y+20) //first left
+    line(x, y-20, x+30, y+10);
+    line(x, y-30, x+30, y);
+
+    line(x-10, y-165, x, y-180); //tip left
+
+  }
+
+
+  
+     // conversation = 'SOUND';
 
 
   } else if (currentSlide == 4) {
 
-     nightSound.stop();
+    nightSound.stop();
 
 
     conversation = 'Wanna see something cute?';
@@ -151,16 +209,18 @@ function draw() {
 
   } else  if (currentSlide == 5) {
 
-     nightSound.stop();
-
+      nightSound.stop();
 
     //picture
-    background('black');
+
+    firstChoice = button('That is adorable!', firstOptionX, firstOptionY);
+    secondChoice = button('Not my thing...', secondOptionX, secondOptionY);
+
+    image(catImage, 0,0);
 
   } else if (currentSlide == 6) {
 
-     nightSound.stop();
-
+    nightSound.stop();
 
     conversation = "Thank you for keeping me company. I'm kinda tired. I'll go to sleep"
 
@@ -172,6 +232,8 @@ function draw() {
     kid(x, y);
 
   } else {
+
+    nightSound.stop();
     background('black');
   }
 
