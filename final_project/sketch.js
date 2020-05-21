@@ -4,7 +4,7 @@
 
 
 var currentSlide = 0;
-var numberOfSlides = 7;
+var numberOfSlides = 6;
 
 var nextSlideX = 300;
 var nextSlideY = 200;
@@ -37,8 +37,6 @@ function setup() {
 }
 
 function draw() {
-
-  nightSound.play();
 
   background("black");
 
@@ -73,10 +71,6 @@ function draw() {
 
   if (currentSlide == 0) {
 
-    
-      vibesSound.stop();
-  
-
     instruction = 'Awake the kid by clicking on him';
 
     
@@ -101,8 +95,6 @@ function draw() {
 
   } else if (currentSlide == 1) {
 
-    nightSound.stop();
-
 
     conversation = " Oh hi, I didn't see you there. How are you?";
 
@@ -117,8 +109,6 @@ function draw() {
 
 
   } else if (currentSlide == 2) {
-
-    nightSound.stop();
     
 
     conversation = "Wanna vibe with me?";
@@ -133,12 +123,6 @@ function draw() {
 
   } else if (currentSlide == 3) {
   
-    if (vibesSound.isPlaying()) {
-      nightSound.stop();
-    } else {
-        vibesSound.play();
-      }
-
       firstChoice = button('Play', firstOptionX, firstOptionY);
       secondChoice = button('That was nice!', secondOptionX, secondOptionY);
 
@@ -194,8 +178,6 @@ function draw() {
 
   } else if (currentSlide == 4) {
 
-    nightSound.stop();
-
 
     conversation = 'Wanna see something cute?';
     
@@ -209,8 +191,6 @@ function draw() {
 
   } else  if (currentSlide == 5) {
 
-      nightSound.stop();
-
     //picture
 
     firstChoice = button('That is adorable!', firstOptionX, firstOptionY);
@@ -219,8 +199,6 @@ function draw() {
     image(catImage, 0,0);
 
   } else if (currentSlide == 6) {
-
-    nightSound.stop();
 
     conversation = "Thank you for keeping me company. I'm kinda tired. I'll go to sleep"
 
@@ -232,8 +210,6 @@ function draw() {
     kid(x, y);
 
   } else {
-
-    nightSound.stop();
     background('black');
   }
 
@@ -361,6 +337,10 @@ function kid(x, y) {
 function mouseReleased() {
 
   if (currentSlide == 0) {
+
+    nightSound.play();
+    vibesSound.stop();
+
     if (mouseX > nextSlideX && mouseX < nextSlideX + nextSlideW &&
       mouseY > nextSlideY && mouseY < nextSlideY + nextSlideH) {
       currentSlide = 1;
@@ -371,6 +351,10 @@ function mouseReleased() {
 
     // change the slide based on current slide and which choice was clicked
   if (currentSlide == 1) {
+
+    nightSound.stop();
+    vibesSound.stop();
+
     if (choice == 'first') {
       currentSlide = 2;
     } else if (choice == 'second') {
@@ -378,11 +362,13 @@ function mouseReleased() {
     } else {
       currentSlide = 1;
     }
-   } 
-  // reset choice after its made
-  choice = 'none';
+   }
 
   if (currentSlide == 2) {
+
+    nightSound.stop();
+    vibesSound.stop();
+
     if (choice == 'first') {
       currentSlide = 3;
     } else if (choice == 'second') {
@@ -391,10 +377,53 @@ function mouseReleased() {
       currentSlide = 2;
     }
 }
+if (currentSlide == 3) {
 
-choice = 'none';
+    nightSound.stop();
+    vibesSound.play();
+
+  if (choice ==' first') {
+    currentSlide = 4;
+  } else if (choice == 'second'){
+    currentSlide = 4;
+  } else {
+    currentSlide == 3;
+  }
+}
+
+if (currentSlide == 4) {
+
+    nightSound.stop();
+    vibesSound.stop();
+
+  if (choice == 'first'){
+    currentSlide = 5;
+  } else if (choice == 'second') {
+    currentSlide = 6;
+  } else {
+    currentSlide = 4;
+  }
+}
+
+if ( currentSlide == 5) {
+
+    nightSound.stop();
+    vibesSound.stop();
+
+  if ( choice == 'first') {
+    currentSlide = 6;
+  } else if (choice = 'second'){
+    currentSlide = 6;
+  } else {
+    currentSlide = 5;
+  }
+}
 
 if (currentSlide == 6) {
+
+    nightSound.stop();
+    vibesSound.stop();
+
   if (choice == 'first') {
     currentSlide = 0;
   } else if (choice == 'second') {
@@ -403,5 +432,6 @@ if (currentSlide == 6) {
     currentSlide = 6;
   }
 }
+choice = 'none'
 
 }
