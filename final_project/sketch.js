@@ -3,7 +3,7 @@
 */
 
 
-var currentSlide = 3;
+var currentSlide = 0;
 var numberOfSlides = 6;
 
 var nextSlideX = 300;
@@ -71,6 +71,7 @@ function draw() {
 
   if (currentSlide == 0) {
 
+
     instruction = 'Awake the kid by clicking on him';
 
     
@@ -123,8 +124,8 @@ function draw() {
 
   } else if (currentSlide == 3) {
   
-      firstChoice = button('Play', firstOptionX, firstOptionY);
-      secondChoice = button('That was nice!', secondOptionX, secondOptionY);
+      firstChoice = button('This is nice!', firstOptionX, firstOptionY);
+      secondChoice = button("I don't really like it...", secondOptionX, secondOptionY);
 
 
   for (let x = 100; x <= width; x += 140) {
@@ -168,6 +169,17 @@ function draw() {
   } else {
     background('black');
   }
+
+  if (currentSlide == 0) {
+      if (!nightSound.isPlaying()) nightSound.play();
+      vibesSound.stop();
+    } else if (currentSlide == 3) {
+      if (!vibesSound.isPlaying()) vibesSound.play();
+      nightSound.stop();
+    } else {
+      nightSound.stop();
+      vibesSound.stop();
+    }
 
   // set the global choice variable
   if (firstChoice) {
@@ -328,9 +340,6 @@ function mouseReleased() {
 
   if (currentSlide == 0) {
 
-    nightSound.play();
-    vibesSound.stop();
-
     if (mouseX > nextSlideX && mouseX < nextSlideX + nextSlideW &&
       mouseY > nextSlideY && mouseY < nextSlideY + nextSlideH) {
       currentSlide = 1;
@@ -339,89 +348,36 @@ function mouseReleased() {
     }
   }
 
-    // change the slide based on current slide and which choice was clicked
-  if (currentSlide == 1) {
-
-    nightSound.stop();
-    vibesSound.stop();
-
-    if (choice == 'first') {
-      currentSlide = 2;
-    } else if (choice == 'second') {
-      currentSlide = 2;
-    } else {
-      currentSlide = 1;
-    }
-   }
-
-  if (currentSlide == 2) {
-
-    nightSound.stop();
-    vibesSound.stop();
-
-    if (choice == 'first') {
-      currentSlide = 3;
-    } else if (choice == 'second') {
-      currentSlide = 4;
-    } else {
-      currentSlide = 2;
-    }
-}
-if (currentSlide == 3) {
-
-    nightSound.stop();
-    vibesSound.play();
-
-  if (choice ==' first') {
-    currentSlide = 4;
-  } else if (choice == 'second'){
-    currentSlide = 4;
-  } else {
-    currentSlide == 3;
-  }
-}
-
-if (currentSlide == 4) {
-
-    nightSound.stop();
-    vibesSound.stop();
-
-  if (choice == 'first'){
-    currentSlide = 5;
-  } else if (choice == 'second') {
-    currentSlide = 6;
-  } else {
-    currentSlide = 4;
-  }
-}
-
-if ( currentSlide == 5) {
-
-    nightSound.stop();
-    vibesSound.stop();
-
-  if ( choice == 'first') {
-    currentSlide = 6;
-  } else if (choice = 'second'){
-    currentSlide = 6;
-  } else {
-    currentSlide = 5;
-  }
-}
-
-if (currentSlide == 6) {
-
-    nightSound.stop();
-    vibesSound.stop();
-
   if (choice == 'first') {
-    currentSlide = 0;
+    if (currentSlide == 1) {
+      currentSlide =2;
+    } else if (currentSlide == 2) {
+      currentSlide = 3;
+    } else if (currentSlide == 3) {
+      currentSlide = 4;
+    } else if (currentSlide == 4) {
+      currentSlide = 5;
+    } else if (currentSlide == 5) {
+      currentSlide = 6;
+    } else if (currentSlide == 6) {
+      currentSlide = 0;
+    }
   } else if (choice == 'second') {
-    currentSlide = 0;
-  } else {
-    currentSlide = 6;
+    if (currentSlide == 1) {
+      currentSlide = 2;
+    } else if (currentSlide == 2) {
+      currentSlide = 4;
+    } else if (currentSlide == 3) {
+      currentSlide = 4;
+    } else if (currentSlide == 4) {
+      currentSlide = 6;
+    } else if (currentSlide == 5) {
+      currentSlide = 6;
+    } else if (currentSlide == 6) {
+      currentSlide = 0;
+    }
   }
-}
+
 choice = 'none'
 
 }
