@@ -33,7 +33,6 @@ function preload () {
 
 function setup() {
   createCanvas(960, 720);
-  frameRate(3);
 }
 
 function draw() {
